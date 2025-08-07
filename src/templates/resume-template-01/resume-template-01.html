@@ -1,0 +1,73 @@
+<div
+  class="template bg-white shadow-lg overflow-hidden flex flex-col gap-[0.5rem] my-[2rem]"
+>
+  <header class="py-[2rem] grid grid-cols-[10rem_1fr]">
+    <div
+      class="img-container ml-[2rem] w-[10rem] h-[10rem] rounded-full bg-blue-200 col-1"
+    >
+      <img src="https://randomuser.me/api/portraits/women/85.jpg" alt="" />
+    </div>
+    <div
+      class="user-info-container bg-blue-200 py-[2.5rem] flex flex-col justify-center pl-[5.5rem] col-2"
+    >
+      <h2 class="username text-[2.2rem] pb-[1rem]">Loremn Ipsunm</h2>
+      <p class="user-job text-[1.4rem]">Sales Representative</p>
+    </div>
+  </header>
+  <section class="resume-info-section flex gap-[2rem] h-full">
+    <aside
+      class="details flex-[0_0_42%] px-[2.5rem] bg-blue-200 rounded-t-[3.5rem] flex flex-col gap-[1.5rem]"
+    >
+      <ul class="info-list mt-[2rem]">
+        <li class="info-item">
+          <lucide-icon [img]="phoneIcon" class="my-icon"></lucide-icon>
+          <span class="data">+123 828 900 123</span>
+        </li>
+        <li class="info-item">
+          <lucide-icon [img]="emailIcon" class="my-icon"></lucide-icon>
+          <span class="data">lorem@gmail.com</span>
+        </li>
+        <li class="info-item">
+          <lucide-icon [img]="locationIcon" class="my-icon"></lucide-icon>
+          <span class="data">Kupondole, Lalitpur</span>
+        </li>
+      </ul>
+
+      <article class="education-list">
+        <h2 class="text-[1.4rem] pb-[0.8rem] border-b">Education</h2>
+        <ul class="edu-list pt-[0.8rem] flex flex-col gap-[0.5rem]">
+          <li class="edu-item flex flex-col gap-[0.1rem]">
+            <p class="data text-[1rem]">BA Salses and Commerce</p>
+            <p class="text-[0.9rem] font-medium">Wales University</p>
+            <p class="date text-[0.8rem]">2011 - 2016</p>
+          </li>
+          <li class="edu-item flex flex-col gap-[0.1rem]">
+            <p class="data text-[1rem]">BA Salses and Commerce</p>
+            <p class="text-[0.9rem] font-medium">Wales University</p>
+            <p class="date text-[0.8rem]">2011 - 2016</p>
+          </li>
+        </ul>
+      </article>
+      <article class="skills-list-container">
+        <h2 class="text-[1.4rem] pb-[0.8rem] border-b">Skills</h2>
+        <ul
+          class="skill-list pt-[0.8rem] flex flex-col gap-[0.5rem] list-disc ml-[1.2rem]"
+        >
+          <li class="skill-item text-[1rem]">React</li>
+          <li class="skill-item text-[1rem]">Angular</li>
+          <li class="skill-item text-[1rem]">TailwindCSS</li>
+          <li class="skill-item text-[1rem]">Vite</li>
+        </ul>
+      </article>
+      <article class="language-list-container">
+        <h2 class="text-[1.4rem] pb-[0.8rem] border-b">Language</h2>
+        <ul class="language-list flex flex-col gap-[0.5rem] pt-[0.8rem]">
+          <li class="text-[1rem]">English</li>
+          <li class="text-[1rem]">Nepali</li>
+        </ul>
+      </article>
+    </aside>
+    <article class="detail-container grow"></article>
+  </section>
+</div>
+

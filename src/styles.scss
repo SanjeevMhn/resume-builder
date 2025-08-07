@@ -1,1 +1,90 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+@import "tailwindcss";
+
+:root{
+  font-size: 62.5%;
+}
+
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+  font-size: 1.6rem;
+
+  // Reset the user agent margin.
+  margin: 0;
+}
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr min(90%, 135rem) 1fr;
+  > * {
+    grid-column: 2;
+  }
+}
+
+button{
+  cursor: pointer!important;
+}
+
+.template{
+  width: 40rem;
+  height: 56rem;
+}
+
+.template-wrapper{
+  width: 100%;
+  height: calc(calc(100% - 5.5rem) + 10rem);
+  @apply bg-neutral-200;
+  padding: 2rem 0;
+  overflow: auto;
+}
+
+.my-icon{
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.info-list{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+    .info-item{
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        .data{
+            @apply text-neutral-600;
+            font-size: 0.9rem
+        }
+    }
+}
