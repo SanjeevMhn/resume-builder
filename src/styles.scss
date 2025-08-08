@@ -89,3 +89,20 @@ button{
         }
     }
 }
+
+.template{
+  background-color: #fff;
+  header{
+    .img-container{
+      background-color: #bedbff;
+    }
+  }
+  .user-info-container{
+      background-color: #bedbff;
+  }
+  .resume-info-section{
+    .details{
+      background-color: #bedbff;
+    }
+  }
+}

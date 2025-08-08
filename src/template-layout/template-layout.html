@@ -1,22 +1,25 @@
 <div class="wrapper template-wrapper place-items-center relative isolate">
   <div class="sticky w-full h-screen top-0  z-[20]">
     <nav
-      class="floating-nav bg-white shadow-xl p-[0.5rem] rounded-3xl flex flex-col items-center gap-[0.8rem] absolute top-[2rem] left-[-2.5rem] top-[50%] translate-y-[-50%]"
+      class="floating-nav bg-white shadow-xl p-[1.5rem_0.5rem] rounded-full flex flex-col items-center gap-[0.8rem] absolute top-[2rem] left-[-2.5rem] top-[50%] translate-y-[-50%]"
     >
       @for(item of floatingNav; track $index){ @if(item.link){
       <a
         [routerLink]="[`/${item.link}`]"
-        class="border-2 border-white hover:border-neutral-300 rounded-md p-[1.2rem]"
+        class="p-[1.2rem] group"
       >
-        <lucide-icon [img]="item.icon"></lucide-icon>
+        <lucide-icon [img]="item.icon" class="group-hover:text-amber-500"></lucide-icon>
       </a>
       }@else {
       <button
         title="{{item.name}}"
         type="button"
-        class="border-2 border-white hover:border-neutral-300 rounded-md p-[1.2rem]"
+        class="p-[1.2rem] group"
+        [class]="item.name"
+        #button
+        (click)="handleAction(item.name)"
       >
-        <lucide-icon [img]="item.icon"></lucide-icon>
+        <lucide-icon [img]="item.icon"  class="group-hover:text-amber-500"></lucide-icon>
       </button>
       } }
     </nav>

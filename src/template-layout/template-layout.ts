@@ -4,6 +4,7 @@ import {
   HostListener,
   OnInit,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {
@@ -17,6 +18,9 @@ import {
   SaveIcon,
 } from 'lucide-angular';
 
+import html2canvas from 'html2canvas-pro';
+import jsPDF from 'jspdf';
+
 @Component({
   selector: 'app-template-layout',
   imports: [RouterOutlet, LucideAngularModule, RouterLink],
@@ -29,7 +33,7 @@ export class TemplateLayout implements OnInit {
   heartIcon = Heart;
   undoIcon = CornerUpLeft;
   redoIcon = CornerUpRight;
-  downloadIcon = Download
+  downloadIcon = Download;
 
   floatingNav: Array<{
     id: number;
@@ -39,35 +43,35 @@ export class TemplateLayout implements OnInit {
   }> = [
     {
       id: 1,
-      name: 'Home',
+      name: 'home',
       icon: this.homeIcon,
       link: 'home',
     },
     {
       id: 2,
-      name: 'Save',
+      name: 'save',
       icon: this.saveIcon,
     },
     {
       id: 3,
-      name: 'Favorite',
+      name: 'favorite',
       icon: this.heartIcon,
     },
     {
       id: 4,
-      name: 'Undo',
+      name: 'undo',
       icon: this.undoIcon,
     },
     {
       id: 5,
-      name: 'Redo',
+      name: 'redo',
       icon: this.redoIcon,
     },
     {
       id: 6,
-      name: 'Download',
-      icon: this.downloadIcon
-    }
+      name: 'download',
+      icon: this.downloadIcon,
+    },
   ];
 
   @ViewChild('zoomSection', { static: true }) zoomSection!: ElementRef;
@@ -126,6 +130,27 @@ export class TemplateLayout implements OnInit {
       this.zoomSection.nativeElement.style.paddingTop = `0rem`;
       this.zoomSection.nativeElement.style.transform = `scale(1)`;
       this.zoomLevel = 1;
+    }
+  }
+
+  handleAction(btn: any) {
+    if (btn == 'download') {
+      this.zoomSection.nativeElement.style.marginTop = `0rem`;
+      this.zoomSection.nativeElement.style.paddingTop = `0rem`;
+      this.zoomSection.nativeElement.style.transform = `scale(1)`;
+      this.zoomLevel = 1;
+      const template = document.getElementById('template');
+      html2canvas(template!,{
+        scale: 5,
+        useCORS: true
+      }).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        let fileWidth = 210;
+        let fileHeight = (canvas.height * fileWidth) / canvas.width;
+        pdf.addImage(imgData, 'PNG', 0, 0, fileWidth, fileHeight);
+        pdf.save('resume-01');
+      });
     }
   }
 }
