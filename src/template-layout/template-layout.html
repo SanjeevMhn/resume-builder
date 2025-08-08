@@ -1,3 +1,28 @@
-<div class="wrapper template-wrapper place-items-center" #zoomSection>
+<div class="wrapper template-wrapper place-items-center relative isolate">
+  <div class="sticky w-full h-screen top-0  z-[20]">
+    <nav
+      class="floating-nav bg-white shadow-xl p-[0.5rem] rounded-3xl flex flex-col items-center gap-[0.8rem] absolute top-[2rem] left-[-2.5rem] top-[50%] translate-y-[-50%]"
+    >
+      @for(item of floatingNav; track $index){ @if(item.link){
+      <a
+        [routerLink]="[`/${item.link}`]"
+        class="border-2 border-white hover:border-neutral-300 rounded-md p-[1.2rem]"
+      >
+        <lucide-icon [img]="item.icon"></lucide-icon>
+      </a>
+      }@else {
+      <button
+        title="{{item.name}}"
+        type="button"
+        class="border-2 border-white hover:border-neutral-300 rounded-md p-[1.2rem]"
+      >
+        <lucide-icon [img]="item.icon"></lucide-icon>
+      </button>
+      } }
+    </nav>
+  </div>
+
+  <div class="absolute  left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]" #zoomSection>
     <router-outlet class="contents" />
+  </div>
 </div>

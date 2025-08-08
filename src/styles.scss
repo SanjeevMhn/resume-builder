@@ -63,10 +63,11 @@ button{
 
 .template-wrapper{
   width: 100%;
-  height: calc(calc(100% - 5.5rem) + 10rem);
+  // height: calc(calc(100% - 5.5rem) + 10rem);
+  height: 100vh;
   @apply bg-neutral-200;
   padding: 2rem 0;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .my-icon{

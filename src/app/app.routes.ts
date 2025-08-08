@@ -4,7 +4,8 @@ import { Home } from '../home/home';
 import { TemplateLayout } from '../template-layout/template-layout';
 
 export const routes: Routes = [
-  { path: '', component: Home },
+  { path: 'home', component: Home },
+  { path: '', redirectTo:'home', pathMatch: 'full' },
   {
     path: 'template',
     component: TemplateLayout,
