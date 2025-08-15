@@ -77,7 +77,7 @@ export class TemplateLayout implements OnInit {
   @ViewChild('zoomSection', { static: true }) zoomSection!: ElementRef;
   zoomLevel = 1.8;
   zoomStep = 0.1;
-  maxZoom = 3;
+  maxZoom = 2.5
 
   ngOnInit(): void {
     this.zoomSection.nativeElement.style.transform = `scale(${this.zoomLevel})`;

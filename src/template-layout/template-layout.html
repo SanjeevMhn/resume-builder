@@ -1,31 +1,39 @@
-<div class="wrapper template-wrapper place-items-center relative isolate">
-  <div class="sticky w-full h-screen top-0  z-[20]">
-    <nav
-      class="floating-nav bg-white shadow-xl p-[1.5rem_0.5rem] rounded-full flex flex-col items-center gap-[0.8rem] absolute top-[2rem] left-[-2.5rem] top-[50%] translate-y-[-50%]"
-    >
-      @for(item of floatingNav; track $index){ @if(item.link){
-      <a
-        [routerLink]="[`/${item.link}`]"
-        class="p-[1.2rem] group"
+<!-- <div class="wrapper"> -->
+  <div class="template-wrapper place-items-center relative isolate">
+    <div class="sticky w-full h-screen top-0">
+      <nav
+        class="floating-nav bg-white shadow-xl p-[1.5rem_0.5rem] rounded-full flex flex-col items-center gap-[0.8rem] absolute left-[2rem] top-[50%] translate-y-[-50%]"
       >
-        <lucide-icon [img]="item.icon" class="group-hover:text-amber-500"></lucide-icon>
-      </a>
-      }@else {
-      <button
-        title="{{item.name}}"
-        type="button"
-        class="p-[1.2rem] group"
-        [class]="item.name"
-        #button
-        (click)="handleAction(item.name)"
-      >
-        <lucide-icon [img]="item.icon"  class="group-hover:text-amber-500"></lucide-icon>
-      </button>
-      } }
-    </nav>
-  </div>
+        @for(item of floatingNav; track $index){ @if(item.link){
+        <a [routerLink]="[`/${item.link}`]" class="p-[1.2rem] group">
+          <lucide-icon
+            [img]="item.icon"
+            class="group-hover:text-amber-500"
+          ></lucide-icon>
+        </a>
+        }@else {
+        <button
+          title="{{item.name}}"
+          type="button"
+          class="p-[1.2rem] group"
+          [class]="item.name"
+          #button
+          (click)="handleAction(item.name)"
+        >
+          <lucide-icon
+            [img]="item.icon"
+            class="group-hover:text-amber-500"
+          ></lucide-icon>
+        </button>
+        } }
+      </nav>
+    </div>
 
-  <div class="absolute  left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]" #zoomSection>
-    <router-outlet class="contents" />
+    <div
+      class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-[2]"
+      #zoomSection
+    >
+      <router-outlet class="contents" />
+    </div>
   </div>
-</div>
+<!-- </div> -->

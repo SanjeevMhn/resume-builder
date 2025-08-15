@@ -42,7 +42,7 @@ body {
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; @apply  bg-neutral-200; }
 
 .wrapper{
   display: grid;
@@ -63,11 +63,12 @@ button{
 
 .template-wrapper{
   width: 100%;
-  // height: calc(calc(100% - 5.5rem) + 10rem);
-  height: 100vh;
-  @apply bg-neutral-200;
   padding: 2rem 0;
-  overflow-y: auto;
+  height: 100vh;
+  overflow: auto;
+  &::-webkit-scrollbar{
+    appearance: none;
+  }
 }
 
 .my-icon{
