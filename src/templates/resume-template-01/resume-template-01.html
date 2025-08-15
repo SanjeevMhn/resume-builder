@@ -4,28 +4,59 @@
   #template
 >
   <header class="py-[1.2rem] grid grid-cols-[10rem_1fr]">
-    <div class="img-container ml-[2rem] w-[10rem] h-[10rem] rounded-full col-1 relative">
+    <div
+      class="img-container ml-[2rem] w-[10rem] h-[10rem] rounded-full col-1 relative"
+    >
       @if(empImg().file == null){
       <img src="./default.jpg" alt="" />
       }@else {
       <img [src]="empImg().img" alt="" />
       }
-      <label for="profile-img" class="change-img z-[2] absolute bottom-0 left-[1rem] w-[1.75rem] h-[1.75rem] rounded-full bg-neutral-500 flex items-center justify-center cursor-pointer">
-        <lucide-icon [img]="penIcon" class="text-white w-[80%] h-[80%] flex items-center justify-center"></lucide-icon>
+      <label
+        for="profile-img"
+        class="change-img z-[2] absolute bottom-0 left-[1rem] w-[1.75rem] h-[1.75rem] rounded-full bg-neutral-500 flex items-center justify-center cursor-pointer"
+      >
+        <lucide-icon
+          [img]="penIcon"
+          class="text-white w-[80%] h-[80%] flex items-center justify-center"
+        ></lucide-icon>
       </label>
       @if(empImg().file !== null){
-      <button type="button" class="change-img z-[2] absolute bottom-[2rem] left-[0rem] w-[1.75rem] h-[1.75rem] rounded-full bg-neutral-500 flex items-center justify-center cursor-pointer" (click)="onRemoveProfileImg()">
-        <lucide-icon [img]="closeIcon" class="text-white w-[80%] h-[80%] flex items-center justify-center"></lucide-icon>
+      <button
+        type="button"
+        class="change-img z-[2] absolute bottom-[2rem] left-[0rem] w-[1.75rem] h-[1.75rem] rounded-full bg-neutral-500 flex items-center justify-center cursor-pointer"
+        (click)="onRemoveProfileImg()"
+      >
+        <lucide-icon
+          [img]="closeIcon"
+          class="text-white w-[80%] h-[80%] flex items-center justify-center"
+        ></lucide-icon>
       </button>
       }
-      <input type="file" name="" id="profile-img" class="hidden" (change)="onProfileImgUpload($event)">
+      <input
+        type="file"
+        name=""
+        id="profile-img"
+        class="hidden"
+        (change)="onProfileImgUpload($event)"
+      />
     </div>
 
     <div
-      class="user-info-container py-[2.5rem] flex flex-col justify-center pl-[5.5rem] col-2"
+      class="user-info-container py-[2.5rem] flex flex-col justify-center pl-[5.5rem] col-2 relative group"
     >
       <h2 class="username text-[2.2rem] pb-[1rem]">Loremn Ipsunm</h2>
       <p class="user-job text-[1.4rem]">Sales Representative</p>
+      <button
+        type="button"
+        class="change-img z-[2] absolute bottom-[2rem] right-[5.5rem] w-[1.75rem] h-[1.75rem] rounded-full bg-neutral-500 hidden group-hover:flex items-center justify-center cursor-pointer"
+        (click)="onRemoveProfileImg()"
+      >
+        <lucide-icon
+          [img]="penIcon"
+          class="text-white w-[80%] h-[80%] flex items-center justify-center"
+        ></lucide-icon>
+      </button>
     </div>
   </header>
   <section class="resume-info-section flex gap-[1.2rem] h-full">
